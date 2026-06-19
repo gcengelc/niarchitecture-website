@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    minimumCacheTTL: process.env.NODE_ENV === "development" ? 0 : 14400,
+  },
 };
 
 export default nextConfig;
