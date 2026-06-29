@@ -86,7 +86,7 @@ export default function Hero() {
             variants={containerVariants}
             initial="hidden"
             animate={mounted ? "visible" : "hidden"}
-            className="flex"
+            className="flex flex-wrap justify-center"
           >
             {TITLE.split("").map((letter, i) => (
               <motion.span
@@ -107,7 +107,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 8 }}
           animate={mounted ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, delay: 1.65 }}
-          className="text-white/55 text-[clamp(1rem,2.4vw,1.6rem)] font-serif font-light tracking-[0.22em] mt-5"
+          className="text-white/55 text-[clamp(0.85rem,2.4vw,1.6rem)] font-serif font-light tracking-[0.12em] sm:tracking-[0.22em] mt-5 px-2 text-center"
         >
           Nejat İçöz Architects
         </motion.p>
@@ -125,7 +125,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 2.2 }}
-          className="text-white/55 text-[11px] uppercase tracking-[0.5em] mt-7 font-sans"
+          className="text-white/55 text-[10px] sm:text-[11px] uppercase tracking-[0.28em] sm:tracking-[0.5em] mt-7 font-sans text-center px-2"
         >
           Tasarım&nbsp;&nbsp;·&nbsp;&nbsp;Estetik&nbsp;&nbsp;·&nbsp;&nbsp;Vizyon
         </motion.p>

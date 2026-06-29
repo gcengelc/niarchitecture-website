@@ -3,18 +3,25 @@
 import { useRef, useState, FormEvent } from "react";
 import { motion, useInView } from "framer-motion";
 
-const contactInfo = [
+interface ContactItem {
+  label: string;
+  value: string;
+  value2?: string;
+}
+
+const contactInfo: ContactItem[] = [
   {
     label: "Adres",
     value: "Meclis-i Mebusan Caddesi No:49 Kat:3 Fındıklı - Beyoğlu - İstanbul",
   },
   {
     label: "E-posta",
-    value: "info@niarchitects.com.tr",
+    value: "nejaticozarchitecs@gmail.com",
   },
   {
     label: "Telefon",
     value: "+90 534 661 01 23",
+    value2: "+90 537 260 49 09",
   },
   {
     label: "Çalışma Saatleri",
@@ -57,7 +64,7 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           className="flex items-end gap-4 mb-20"
         >
-          <span className="text-[7rem] lg:text-[9rem] leading-none font-serif font-light text-white/[0.04] select-none">
+          <span className="text-[clamp(3.5rem,16vw,9rem)] leading-none font-serif font-light text-white/[0.04] select-none">
             06
           </span>
           <div className="mb-2">
@@ -94,6 +101,11 @@ export default function Contact() {
                   <p className="text-sm font-sans text-white/50 leading-relaxed whitespace-pre-line">
                     {item.value}
                   </p>
+                  {item.value2 && (
+                    <p className="text-sm font-sans text-white/50 leading-relaxed mt-1">
+                      {item.value2}
+                    </p>
+                  )}
                 </div>
               ))}
             </div>

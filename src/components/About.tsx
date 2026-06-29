@@ -30,7 +30,7 @@ export default function About() {
           transition={{ duration: 0.8 }}
           className="flex items-end gap-4 mb-20"
         >
-          <span className="text-[7rem] lg:text-[9rem] leading-none font-serif font-light text-black/[0.12] select-none">
+          <span className="text-[clamp(3.5rem,16vw,9rem)] leading-none font-serif font-light text-black/[0.12] select-none">
             01
           </span>
           <div className="mb-2">
@@ -76,13 +76,13 @@ export default function About() {
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 mt-14 pt-10 border-t border-black/[0.07]">
+            <div className="grid grid-cols-3 gap-3 sm:gap-6 mt-14 pt-10 border-t border-black/[0.07]">
               {stats.map((s) => (
                 <div key={s.label}>
-                  <p className="text-3xl lg:text-4xl font-serif font-light text-black">
+                  <p className="text-2xl sm:text-3xl lg:text-4xl font-serif font-light text-black">
                     {s.num}
                   </p>
-                  <p className="text-[9px] text-black/30 tracking-[0.18em] uppercase mt-2 font-sans leading-relaxed">
+                  <p className="text-[8px] sm:text-[9px] text-black/30 tracking-[0.12em] sm:tracking-[0.18em] uppercase mt-2 font-sans leading-relaxed">
                     {s.label}
                   </p>
                 </div>
@@ -95,7 +95,7 @@ export default function About() {
             initial={{ opacity: 0, x: 40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="relative -mt-[6cm]"
+            className="relative lg:-mt-[6cm]"
           >
             <div className="aspect-[4/5] bg-neutral-50 border border-black/[0.06] relative overflow-hidden flex items-end">
               <Image

@@ -152,7 +152,7 @@ export default function Projects() {
           transition={{ duration: 0.8 }}
           className="flex items-end gap-4 mb-16"
         >
-          <span className="text-[7rem] lg:text-[9rem] leading-none font-serif font-light text-white/[0.10] select-none">
+          <span className="text-[clamp(3.5rem,16vw,9rem)] leading-none font-serif font-light text-white/[0.10] select-none">
             02
           </span>
           <div className="mb-2">
