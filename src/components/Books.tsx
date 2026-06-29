@@ -13,13 +13,10 @@ interface Book {
   description: string;
   pages: string;
   coverImage: string;
-  coverWidth: number;
-  coverHeight: number;
 }
 
-// 1. kitabın ekrandaki boyutu referans alınır
-const COVER_DISPLAY_WIDTH = 324;
-const COVER_DISPLAY_HEIGHT = Math.round(COVER_DISPLAY_WIDTH * (1059 / 1008));
+// Kitap kapağı çerçeve oranı (1. kitap referans)
+const COVER_ASPECT_RATIO = 1008 / 1059;
 
 const books: Book[] = [
   {
@@ -29,11 +26,9 @@ const books: Book[] = [
     year: "2020",
     publisher: "Nejat İçöz Architects",
     description:
-      "Bina bilgisi, temel bilgileri oluştururuz. Bölge çalışması, ön rekonstrüksiyon projesi, statik, röleve, restorasyon projesi yapılır. Mekanik, elektrik, zemin yapıp teslimat veririz. Su borusunun pis su, temiz su tespiti ile yapıp, devamında aydınlatma, temiz su/atık, ısınma, havalandırma, aydınlatma, akustik ve iş makineleri, topografya, metrajların düzenlenmesi. Genel bitmiş mobilyalar/servis ekipmanları, şehircilik, tarihi sanat tarihi, arkeoloji, mimarlık, harita bilgisi, yapım işleri, inşaatta çalışmak, ölçmek, yapı, mola benzeri hatanın kilisesi tuğla tono, dokular, surp sargis alanı, ses yutucu, toprak testi nedir, monte edilmiş olması, yapımı gerekli ve nedir?",
+      "Mimarlık eğitiminin en temel dersi olan \"Yapı Bilgisi\"ni bu kitap hem öğrenci hem de uygulayıcı mimar için kapsamlı bir rehbere dönüştürmüştür.\n\nYapı 1, temelden çatıya, ahşaptan çeliğe, pencereden merdivene kadar bir yapıyı oluşturan tüm sistemleri plan-kesit-görünüş ve ölçekli çizimlerle sistematik bir dille ele almıştır. Tanımın arayışıyla başlayan kitap; strüktürel sistemler, temel türleri, döşeme sistemleri, çatı sistemleri, ahşap ve çelik konstrüksiyon, pencere ve kapı detayları, merdivenler, asma tavanlar ve şilte zemin sistemlerine kadar uzanan geniş bir yelpazeyi kapsamaktadır.\n\nKitabın ayırt edici özelliği, yalnızca teorik bilgi sunmakla kalmayıp Berlin, Sarıyer, Fatih gibi gerçek proje ve uygulama örnekleriyle konuları somutlaştırması; 1/2, 1/5, 1/10 ölçekli sistem ve detay çizimleriyle okuyucuyu uygulamaya doğrudan hazırlamasıdır.\n\nMimarlık eğitiminde teorik altyapı ile uygulamalı bilgiyi bir arada ele alan Yapı 1, hem akademik hem de mesleki bağlamda kullanıma yönelik bir başvuru kaynağı niteliği taşımaktadır.",
     pages: "312 sayfa",
     coverImage: "/images/kitap-1.png",
-    coverWidth: 1295,
-    coverHeight: 1214,
   },
   {
     id: 2,
@@ -42,63 +37,48 @@ const books: Book[] = [
     year: "2026",
     publisher: "Nejat İçöz Architects",
     description:
-      "'Yapı 1 - 2020' kitabında mimari öğeleri mümkün olduğunca tek tek ele alarak, çizime ağırlık veren 'çizerek öğrenmek' ilkesi doğrultusunda bilgilerimi tüm okuyucularla paylaşmak istedim. Yapıyı; ölçekli plan, kesit, görünüş ve renkli el çizimleriyle anlatmayı tercih ettim. Bu anlatım biçiminin hem öğrenciler hem de uygulayıcı mimarlar için faydalı olacağına inanıyorum. Çünkü biz mimarlar için düşünme ve ifade etme biçimi doğal olarak ölçekli çizimler-planlar, kesitler ve görünüşler-üzerinden şekillenmektedir.",
+      "Yapı 1½ kitabı, Yapı 1'in devamı olarak ek konularla birlikte bir \"Yapı Bilgisi\" başvuru kitabıdır. Bazı konular çıkarılmış, yeni sistemler ve uygulamalar eklenerek toplamda 73 sayfa genişletilmiş ve yapı bilgisi literatürüne kapsamlı bir kaynak kazandırılmıştır.\n\n\"Yapı Bilgisi\" kavramının tanımından yola çıkan kitap, farklı işlev ve ölçeklerdeki gerçek proje örnekleriyle konuları somutlaştırmış; 1/2, 1/5, 1/10 ölçekli sistem ve detay çizimleriyle işlemiştir.\n\nYapı 1½, hem akademik çalışmalara yardımcı olan hem mesleki bağlamda teorik altyapıyı uygulamalı bilgiyle buluşturan bir kaynak niteliği taşımaktadır.",
     pages: "248 sayfa",
     coverImage: "/images/kitap-2.png",
-    coverWidth: 1295,
-    coverHeight: 1214,
   },
   {
     id: 3,
-    title: "Restorasyon  121. Uygulama",
+    title: "Restorasyon  221. Uygulama",
     subtitle: "Tarihi yapıların korunması ve restorasyon tekniklerine odaklanan kaynak",
     year: "2026 YAKINDA",
     publisher: "Nejat İçöz Architects",
     description:
-      "Elinizdeki bu kitap, yapının anatomisini ve taşıyıcı sistemlerin mantığını tarihsel bir perspektifle alırken, restorasyonun teknik olduğu kadar etik boyutuna da odaklanmaktadır. Amaç, geçmişin bilgisini yalnızca korumak değil; onu çözümleyerek günümüz mimarlığına ve geleceğin tasarım anlayışına aktarmaktır.",
+      "Restorasyon 221, tarihi yapıların korunması ve restorasyonunu hem kuramsal hem de uygulama boyutuyla ele alan ölçekli ve kapsamlı bir başvuru kitabıdır. Koruma kavramının tanımından yola çıkan kitap; tarihi mirasın korunması, tescilli yapılarda proje ve onay süreçleri, fotogrametri ve lazer tarama gibi modern rölöve teknikleri, restitüsyon ve restorasyon projelerinden tadilat uygulamalarına uzanan geniş bir içerik yelpazesini sistematik bir dille ele almaktadır.\n\nÖlçekli vaziyet planları, planlar, kesitler, görünüşler, tavan planları ve sistem detaylarıyla desteklenen kitap, okuyucuyu rölöveden uygulamaya uzanan sürecin tamamında yönlendirmektedir. Kitabın ayırt edici özelliği, tüm bu bilgiyi gerçek bir uygulama projesi üzerinden aktarmasıdır. Rölöve projesinden restitüsyona, restorasyon projesinden tadilat uygulamasına kadar sürecin her aşaması, aynı yapı üzerinde ölçekli çizim ve fotoğraflarla izlenebilmektedir.\n\nRestorasyon 221, hem akademik çalışmalara destek olan hem mesleki bağlamda teorik altyapıyı uygulamalı bilgiyle buluşturan bir kaynak niteliği taşımaktadır.",
     pages: "180 sayfa",
     coverImage: "/images/kitap-3.png",
-    coverWidth: 1295,
-    coverHeight: 1214,
   },
   {
     id: 4,
-    title: "Kitap IV",
+    title: "Restorasyon 263",
     subtitle: "Yeni yayın — detaylar yakında.",
     year: "YAKINDA",
     publisher: "Nejat İçöz Architects",
     description:
-      "Bu kitap üzerinde çalışmalar devam etmektedir. Yayınlandığında burada detaylı bilgi yer alacaktır.",
+      "Uygulama, tarihi yapıların korunması ve restorasyonunu farklı bir uygulama projesi üzerinden ele alan ölçekli bir rehber kitaptır. Koruma kavramının tanımından yola çıkan kitap, tarihi mirasın korunmasından tescilli yapılarda rölöve teknikleri, restitüsyon, restorasyon ve tadilat projesi süreçlerine kadar restorasyon pratiğinin tamamını ölçekli ve sistematik bir dille aktarmaktadır.",
     pages: "—",
     coverImage: "/images/kitap-4.png",
-    coverWidth: 1295,
-    coverHeight: 1214,
   },
   {
     id: 5,
-    title: "Kitap V",
+    title: "Şantiye I",
     subtitle: "Yeni yayın — detaylar yakında.",
     year: "YAKINDA",
     publisher: "Nejat İçöz Architects",
     description:
-      "Bu kitap üzerinde çalışmalar devam etmektedir. Yayınlandığında burada detaylı bilgi yer alacaktır.",
+      "Şantiye bir işletmedir. \"İşletme kar amacıyla kurulur, kar etmeyen işletme kapatılır.\" anlayışından hareketle şantiye organizasyonu, devamlılığı ve kar amacı gütmesi açısından önemli bir yatırımdır.\n\nŞantiye Notları 1, yapı üretim sürecinin uygulamadaki karşılığını; şantiye organizasyonundan uygulama detaylarına, malzeme bilgisinden kontrol süreçlerine kadar tüm boyutlarıyla ele alan kapsamlı bir başvuru kitabı olup mimari bürodaki müellif ile şantiyedeki şantiye şefinin ilişkilerini anlatır.",
     pages: "—",
     coverImage: "/images/kitap-5.png",
-    coverWidth: 1295,
-    coverHeight: 1214,
   },
 ];
-
-function getCoverScale(coverWidth: number, coverHeight: number) {
-  const naturalHeight =
-    COVER_DISPLAY_WIDTH * (coverHeight / coverWidth);
-  return COVER_DISPLAY_HEIGHT / naturalHeight;
-}
 
 function BookCard({ book, index }: { book: Book; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
-  const coverScale = getCoverScale(book.coverWidth, book.coverHeight);
 
   return (
     <motion.div
@@ -106,37 +86,24 @@ function BookCard({ book, index }: { book: Book; index: number }) {
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="flex gap-7 lg:gap-10"
+      className="flex flex-col items-center gap-6 sm:flex-row sm:items-start sm:gap-7 lg:gap-10"
     >
       {/* Book cover */}
       <div
-        className="relative flex-shrink-0 overflow-hidden"
-        style={{
-          width: COVER_DISPLAY_WIDTH,
-          height: COVER_DISPLAY_HEIGHT,
-        }}
+        className="relative w-full max-w-[220px] flex-shrink-0 overflow-hidden sm:max-w-[260px] lg:w-[324px] lg:max-w-[324px]"
+        style={{ aspectRatio: COVER_ASPECT_RATIO }}
       >
-        <div
-          className="absolute left-1/2 top-1/2"
-          style={{
-            width: COVER_DISPLAY_WIDTH,
-            transform: `translate(-50%, -50%) scale(${coverScale})`,
-            transformOrigin: "center center",
-          }}
-        >
-          <Image
-            src={book.coverImage}
-            alt={`${book.title} kapak görseli`}
-            width={book.coverWidth}
-            height={book.coverHeight}
-            className="h-auto w-full"
-            sizes={`${COVER_DISPLAY_WIDTH}px`}
-          />
-        </div>
+        <Image
+          src={book.coverImage}
+          alt={`${book.title} kapak görseli`}
+          fill
+          className="object-contain"
+          sizes="(max-width: 640px) 220px, (max-width: 1024px) 260px, 324px"
+        />
       </div>
 
       {/* Book info */}
-      <div className="flex flex-col justify-center py-2">
+      <div className="flex w-full min-w-0 flex-col justify-center py-2 text-center sm:text-left">
         <p className="text-[8px] tracking-[0.4em] uppercase text-black/25 font-sans mb-2">
           {book.year} · {book.publisher}
         </p>
@@ -144,7 +111,7 @@ function BookCard({ book, index }: { book: Book; index: number }) {
           {book.title}
         </h3>
         <p className="text-sm text-black/35 font-sans mb-4 italic">{book.subtitle}</p>
-        <p className="text-sm text-black/50 font-sans leading-relaxed max-w-md">
+        <p className="text-sm text-black/50 font-sans leading-relaxed max-w-md whitespace-pre-line">
           {book.description}
         </p>
         <p className="text-[9px] text-black/20 font-sans mt-4 tracking-wider">{book.pages}</p>
@@ -168,7 +135,7 @@ export default function Books() {
           transition={{ duration: 0.8 }}
           className="flex items-end gap-4 mb-20"
         >
-          <span className="text-[7rem] lg:text-[9rem] leading-none font-serif font-light text-black/[0.12] select-none">
+          <span className="text-[clamp(3.5rem,16vw,9rem)] leading-none font-serif font-light text-black/[0.12] select-none">
             03
           </span>
           <div className="mb-2">

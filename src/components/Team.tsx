@@ -162,10 +162,10 @@ export default function Team() {
           initial={{ opacity: 0, y: 30 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="flex items-end justify-between gap-4 mb-16"
+          className="flex flex-col gap-6 mb-16 sm:flex-row sm:items-end sm:justify-between sm:gap-4"
         >
-          <div className="flex items-end gap-4">
-            <span className="text-[7rem] lg:text-[9rem] leading-none font-serif font-light text-black/[0.04] select-none">
+          <div className="flex min-w-0 items-end gap-3 sm:gap-4">
+            <span className="text-[clamp(3.5rem,16vw,9rem)] leading-none font-serif font-light text-black/[0.04] select-none">
               05
             </span>
             <div className="mb-2">
@@ -179,7 +179,7 @@ export default function Team() {
           </div>
 
           {/* Arrow controls */}
-          <div className="flex items-center gap-3 mb-3">
+          <div className="flex items-center gap-3 sm:mb-3 self-end sm:self-auto">
             <button
               onClick={() => scrollBy("left")}
               disabled={!canScrollLeft}
